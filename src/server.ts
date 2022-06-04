@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import usuariosRouter from './routes/usuarios.routes';
+import feedbacksRouter from './routes/feedbacks.routes';
 import { connection } from './database/config';
 
 const port = 3000;
@@ -11,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/usuarios', usuariosRouter);
-
+app.use('/feedbacks', feedbacksRouter);
 
 app.get('/', (req: Request, res: Response) => {
     const messageObject = {
@@ -21,7 +22,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 
-app.listen(port, async () => {
+app.listen(process.env.PORT || port, async () => {
     await connection;
     console.log('Banco de dados conectado com sucesso!');
     console.log(`Servidor disponível na porta: ${port}`);
