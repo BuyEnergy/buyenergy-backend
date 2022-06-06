@@ -19,7 +19,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     
 });
 
-router.post('/', async (req: Request, res: Response) => {
+router.post('/create', async (req: Request, res: Response) => {
     await UsuariosService.create(req.body);
     res.status(201).send(generateMessage("Usuario criado com sucesso!"));
 });

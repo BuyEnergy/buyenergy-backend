@@ -4,6 +4,6 @@ export interface Usuarios {
   rating1: number,
   plataforma: string,
   rating2: number,
-  performace: string,
+  performance: string,
   rating3: number, 
 }

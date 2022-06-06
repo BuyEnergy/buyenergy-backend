@@ -20,7 +20,7 @@ export class Feedbacks {
     rating2?: number;
    
     @Column({ name: 'performace', type: 'varchar', length: 200 })
-    performace?: string;
+    performance?: string;
 
     @Column({ name: 'rating3', type: 'integer'})
     rating3?: number;
