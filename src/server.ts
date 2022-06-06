@@ -22,8 +22,8 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 
-app.listen(process.env.PORT || port, async () => {
-    await connection;
+app.listen(process.env.PORT || port, () => {
+    
     console.log('Banco de dados conectado com sucesso!');
     console.log(`Servidor disponível na porta: ${port}`);
 });
