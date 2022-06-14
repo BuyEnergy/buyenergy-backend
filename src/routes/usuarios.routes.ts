@@ -20,8 +20,12 @@ router.get('/:id', async (req: Request, res: Response) => {
 });
 
 router.post('/create', async (req: Request, res: Response) => {
-    await UsuariosService.create(req.body);
-    res.status(201).send(generateMessage("Usuario criado com sucesso!"));
+    try{ 
+        await UsuariosService.create(req.body);
+        res.status(201).send(generateMessage("Usuario criado com sucesso!"));
+    } catch (e){
+     res.status(404).send(generateMessage("Preencha todos os dados!"));
+    }
 });
 
 
@@ -46,7 +50,8 @@ router.put('/update/:id/', async (req: Request, res: Response) => {
 
 router.get('/:email/:password', async (req: Request, res: Response) => {
     const login = await UsuariosService.authenticate(req.params.email,req.params.password)
-    res.send(login)
+    if (!login) return res.status(404).send(generateMessage('False'));
+    res.status(200).send(generateMessage('True'));
 })
 
 
