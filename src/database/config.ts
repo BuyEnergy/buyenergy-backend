@@ -17,7 +17,7 @@ export const connection = createConnection({
         Indicacaos,
     ],
     // logging: true,
-    synchronize: true,
+    // synchronize: true,
     ssl: true,
     extra: {
         ssl: {
