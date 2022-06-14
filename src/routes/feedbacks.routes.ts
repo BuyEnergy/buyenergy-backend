@@ -34,7 +34,7 @@ router.delete('/remove/:id', async (req: Request, res: Response) => {
     return res.status(200).send(generateMessage('Feedback removido com sucesso!' ));
 });
 
-router.put('/update/:id/', async (req: Request, res: Response) => {
+router.put('/update/:id', async (req: Request, res: Response) => {
     const feedbacksId = parseInt(req.params.id);
     const feedbacks = await FeedbacksService.getById(feedbacksId);
     if (!feedbacks) return res.status(404).send(generateMessage('Feedback não encontrado! '));

@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import usuariosRouter from './routes/usuarios.routes';
 import feedbacksRouter from './routes/feedbacks.routes';
+import indicacaosRouter from './routes/indicacaos.routes';
 import { connection } from './database/config';
 
 const port = 3000;
@@ -13,6 +14,7 @@ app.use(express.json());
 
 app.use('/usuarios', usuariosRouter);
 app.use('/feedbacks', feedbacksRouter);
+app.use('/indicacaos', indicacaosRouter);
 
 app.get('/', (req: Request, res: Response) => {
     const messageObject = {

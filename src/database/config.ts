@@ -1,6 +1,8 @@
 import { createConnection } from 'typeorm';
 import { Usuarios } from '../entities/usuarios.entity';
 import { Feedbacks } from '../entities/feedbacks.entity';
+import { Indicacaos } from '../entities/indicacaos.entity';
+
 
 export const connection = createConnection({
     type: 'postgres',
@@ -11,10 +13,11 @@ export const connection = createConnection({
     database: 'ddtl155b845btk',
     entities: [
         Usuarios,
-        Feedbacks
+        Feedbacks,
+        Indicacaos,
     ],
     // logging: true,
-    // synchronize: true,
+    synchronize: true,
     ssl: true,
     extra: {
         ssl: {
